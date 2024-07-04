@@ -1,25 +1,25 @@
 <?php
 
-namespace Moox\Builder;
+namespace Moox\Locate;
 
 use Filament\Contracts\Plugin;
 use Filament\Panel;
 use Filament\Support\Concerns\EvaluatesClosures;
-use Moox\Builder\Resources\BuilderResource;
+use Moox\Locate\Resources\LocateResource;
 
-class BuilderPlugin implements Plugin
+class LocatePlugin implements Plugin
 {
     use EvaluatesClosures;
 
     public function getId(): string
     {
-        return 'builder';
+        return 'locate';
     }
 
     public function register(Panel $panel): void
     {
         $panel->resources([
-            BuilderResource::class,
+            LocateResource::class,
         ]);
     }
 

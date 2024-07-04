@@ -1,13 +1,13 @@
 <?php
 
-namespace Moox\Builder\Resources\BuilderResource\Widgets;
+namespace Moox\Locate\Resources\LocateResource\Widgets;
 
 use Filament\Widgets\StatsOverviewWidget as BaseWidget;
 use Filament\Widgets\StatsOverviewWidget\Stat;
 use Illuminate\Support\Facades\DB;
-use Moox\Builder\Models\Item;
+use Moox\Locate\Models\Locate;
 
-class BuilderWidgets extends BaseWidget
+class LocateWidgets extends BaseWidget
 {
     protected function getCards(): array
     {
@@ -17,14 +17,14 @@ class BuilderWidgets extends BaseWidget
             DB::raw('COUNT(*) as count'),
         ];
 
-        $aggregatedInfo = Item::query()
+        $aggregatedInfo = Locate::query()
             ->select($aggregationColumns)
             ->first();
 
         return [
-            Stat::make(__('builder::translations.totalone'), $aggregatedInfo->count ?? 0),
-            Stat::make(__('builder::translations.totaltwo'), $aggregatedInfo->count ?? 0),
-            Stat::make(__('builder::translations.totalthree'), $aggregatedInfo->count ?? 0),
+            Stat::make(__('locate::translations.totalone'), $aggregatedInfo->count ?? 0),
+            Stat::make(__('locate::translations.totaltwo'), $aggregatedInfo->count ?? 0),
+            Stat::make(__('locate::translations.totalthree'), $aggregatedInfo->count ?? 0),
         ];
     }
 }

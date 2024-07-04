@@ -1,12 +1,12 @@
 <?php
 
-namespace Moox\Builder\Models;
+namespace Moox\Locate\Models;
 
 use Illuminate\Database\Eloquent\Model;
 
-class Item extends Model
+class Locate extends Model
 {
-    protected $table = 'items';
+    protected $table = 'locates';
 
     protected $fillable = [
         'name',

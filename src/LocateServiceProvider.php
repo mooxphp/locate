@@ -2,22 +2,22 @@
 
 declare(strict_types=1);
 
-namespace Moox\Builder;
+namespace Moox\Locate;
 
-use Moox\Builder\Commands\InstallCommand;
+use Moox\Locate\Commands\InstallCommand;
 use Spatie\LaravelPackageTools\Package;
 use Spatie\LaravelPackageTools\PackageServiceProvider;
 
-class BuilderServiceProvider extends PackageServiceProvider
+class LocateServiceProvider extends PackageServiceProvider
 {
     public function configurePackage(Package $package): void
     {
         $package
-            ->name('builder')
+            ->name('locate')
             ->hasConfigFile()
             ->hasViews()
             ->hasTranslations()
-            ->hasMigrations(['create_items_table'])
+            ->hasMigrations(['create_locates_table'])
             ->hasCommand(InstallCommand::class);
     }
 }
