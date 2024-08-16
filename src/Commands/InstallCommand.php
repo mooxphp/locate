@@ -85,8 +85,8 @@ class InstallCommand extends Command
     public function publishMigrations(): void
     {
         if (confirm('Do you wish to publish the migrations?', true)) {
-            if (Schema::hasTable('locates')) {
-                warning('The locates table already exists. The migrations will not be published.');
+            if (Schema::hasTable('areas')) {
+                warning('The areas table already exists. The migrations will not be published.');
 
                 return;
             }
@@ -116,8 +116,8 @@ class InstallCommand extends Command
 
             $pluginsToAdd = multiselect(
                 label: 'These plugins will be installed:',
-                options: ['LocatePlugin'],
-                default: ['LocatePlugin'],
+                options: ['AreaPlugin'],
+                default: ['AreaPlugin'],
             );
 
             $function = '::make(),';
